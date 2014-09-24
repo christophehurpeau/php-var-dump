@@ -7,8 +7,7 @@ html var dump with syntax highlighting
 ### How to use
 
 
-```
-
+```php
 $formatter = new HtmlFormatter();
 $varDump = new VarDump($this->formatter, 99);
 echo '
