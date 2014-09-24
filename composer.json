@@ -1,0 +1,24 @@
+{
+    "name": "christophehurpeau/php-var-dump",
+    "description": "html var dump with syntax highlighting",
+    "version": "1.0.0",
+    "type": "library",
+    "licence": "MIT",
+    "authors": [
+        {
+            "name": "Christophe Hurpeau",
+            "email": "christophe@hurpeau.com",
+            "homepage": "http://christophe.hurpeau.com/"
+        }
+    ],
+    "require-dev" : {
+        "squizlabs/php_codesniffer" : "~1.5",
+        "league/phpunit-coverage-listener" : "~1.0",
+        "phpunit/phpunit" : "~3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "VarDump\\": ["src/"]
+        }
+    }
+}
