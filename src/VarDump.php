@@ -56,9 +56,9 @@ class VarDump
      */
 
     public function dump($value) {
-        return '<div style="background:#1A1A1A;color:#FCFCFC;border:1px solid #050505;overflow:auto;padding:1px 2px;position:relative;">'
+        return $this->formatter->start()
             . $this->dumpValue($value, 0)
-            . '</div>';
+            . $this->formatter->ending();
     }
 
     /**

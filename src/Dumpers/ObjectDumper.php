@@ -1,6 +1,8 @@
 <?php
 namespace VarDump\Dumpers;
 
+use VarDump\Style\Style;
+
 class ObjectDumper extends AbstractDumper
 {
     private $objects = array();
@@ -14,14 +16,14 @@ class ObjectDumper extends AbstractDumper
      */
     public function dump($value, $currentDepth)
     {
-        $id = array_search($value, $this->_objects, true);
+        $id = array_search($value, $this->objects, true);
         $found = $id !== false;
         if (!$found) {
-            $id = array_push($this->_objects, $value);
+            $id = array_push($this->objects, $value);
         } else {
             $id++;
         }
-        $res = $this->color("Object #" . $id . ":", 'BD74BE') . $this->color(get_class($value), 'BD74BE;font-weight:bold');
+        $res = $this->style("Object #" . $id . ":", Style::OBJECT_LABEL) . $this->style(get_class($value), Style::CLASS_VALUE);
 
         if ($found === false && $currentDepth < $this->varDump->getMaxDepth()){
             $objectVars = get_object_vars($value);
@@ -30,7 +32,7 @@ class ObjectDumper extends AbstractDumper
             }
 
             foreach ($objectVars as $key => &$value) {
-                $res .= str_repeat($this->color('| ','666'), $currentDepth+1)
+                $res .= $this->indent($currentDepth+1)
                         . $key . '= ' . $this->dumpValue($value, $currentDepth+1)
                         . $this->newLine();
             }

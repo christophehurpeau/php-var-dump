@@ -10,9 +10,19 @@ interface Formatter
     function newLine();
 
     /**
-     * @param string
-     * @param string
+     * @param string $content
+     * @param string $styleKey
      * @return string
      */
-    function color($content, $color);
+    function style($content, $styleKey);
+
+    /**
+     * @return string
+     */
+    function start();
+
+    /**
+     * @return string
+     */
+    function ending();
 }

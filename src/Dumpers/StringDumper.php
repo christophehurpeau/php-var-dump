@@ -1,6 +1,8 @@
 <?php
 namespace VarDump\Dumpers;
 
+use VarDump\Style\Style;
+
 class StringDumper extends AbstractDumper
 {
     /**
@@ -17,6 +19,7 @@ class StringDumper extends AbstractDumper
         if($enc !== 'UTF-8') {
             $str = iconv($enc, 'UTF-8', $str);
         }
-        return $this->color(var_export($str, true), 'EC7600') . $this->color('['.$enc.']', 'f2a04d');
+        return $this->style(var_export($str, true), Style::STRING_VALUE)
+                 . ($enc !== 'UTF-8' ? $this->style('['.$enc.']', Style::STRING_ENCODING) : '');
     }
 }

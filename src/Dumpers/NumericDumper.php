@@ -1,6 +1,8 @@
 <?php
 namespace VarDump\Dumpers;
 
+use VarDump\Style\Style;
+
 class NumericDumper extends AbstractDumper
 {
     /**
@@ -12,6 +14,6 @@ class NumericDumper extends AbstractDumper
      */
     public function dump($value, $currentDepth)
     {
-        return $this->color($value, 'FFCD22');
+        return $this->style($value, Style::NUMERIC_VALUE);
     }
 }

@@ -1,6 +1,8 @@
 <?php
 namespace VarDump\Dumpers;
 
+use VarDump\Style\Style;
+
 class BooleanDumper extends AbstractDumper
 {
     /**
@@ -12,6 +14,6 @@ class BooleanDumper extends AbstractDumper
      */
     public function dump($value, $currentDepth)
     {
-        return $this->color($value ? 'true' : 'false', '93C763;font-weight:bold');
+        return $this->color($value ? 'true' : 'false', Style::BOOLEAN_VALUE);
     }
 }

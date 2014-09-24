@@ -13,12 +13,26 @@ class HtmlFormatter implements Formatter
     }
 
     /**
-     * @param string
-     * @param string
+     * @param string $content
+     * @param string $styleKey
      * @return string
      */
-    public function color($content, $color)
+    public function style($content, $styleKey)
     {
         return $content;
+    }
+
+    /**
+     * @return string
+     */
+    public function start() {
+        return '';
+    }
+
+    /**
+     * @return string
+     */
+    public function ending() {
+        return '';
     }
 }

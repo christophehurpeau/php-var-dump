@@ -1,6 +1,8 @@
 <?php
 namespace VarDump\Dumpers;
 
+use VarDump\Style\Style;
+
 class FloatDumper extends AbstractDumper
 {
     /**
@@ -12,6 +14,6 @@ class FloatDumper extends AbstractDumper
      */
     public function dump($value, $currentDepth)
     {
-        return $this->color(strpos($value, '.') === false ? $value.'.0' : $value, 'FFCD22');
+        return $this->style(strpos($value, '.') === false ? $value.'.0' : $value, Style::FLOAT_VALUE);
     }
 }

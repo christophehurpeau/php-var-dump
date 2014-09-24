@@ -1,7 +1,7 @@
 {
     "name": "christophehurpeau/php-var-dump",
     "description": "html var dump with syntax highlighting",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "type": "library",
     "license": "MIT",
     "authors": [

@@ -1,6 +1,8 @@
 <?php
 namespace VarDump\Dumpers;
 
+use VarDump\Style\Style;
+
 class NullDumper extends AbstractDumper
 {
     /**
@@ -12,6 +14,6 @@ class NullDumper extends AbstractDumper
      */
     public function dump($value, $currentDepth)
     {
-        return $this->color('null', '93C763;font-weight:bold');
+        return $this->style('null', Style::NULL_VALUE);
     }
 }

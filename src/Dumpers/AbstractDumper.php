@@ -2,6 +2,7 @@
 namespace VarDump\Dumpers;
 
 use VarDump\VarDump;
+use VarDump\Style\Style;
 
 abstract class AbstractDumper implements Dumper
 {
@@ -17,6 +18,15 @@ abstract class AbstractDumper implements Dumper
         $this->varDump = $varDump;
     }
 
+
+    /**
+     * @param int $depth
+     * @return string
+     */
+    public function indent($depth) {
+        return str_repeat($this->style('| ', Style::INDENTATION_LINE), $depth);
+    }
+
     /**
      * @return string
      */
@@ -29,8 +39,8 @@ abstract class AbstractDumper implements Dumper
      * @param string
      * @return string
      */
-    public function color($content, $color) {
-        return $this->varDump->getFormatter()->color($content, $color);
+    public function style($content, $styleKey) {
+        return $this->varDump->getFormatter()->style($content, $styleKey);
     }
 
     /**
